@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 import { ShoppingCart, User2Icon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

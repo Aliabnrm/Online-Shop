@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Poppins as FontSans } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import Provider from "./Provider";
+
 import { cn } from "@/lib/utils";
 
 const fontSans = FontSans({
@@ -31,7 +31,7 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          <Provider>{children}</Provider>
+          {children}
         </body>
       </html>
     </ClerkProvider>
