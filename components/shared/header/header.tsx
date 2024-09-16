@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Header = () => {
+const Header = async () => {
   return (
     <header className="w-full border-b">
       <div className="wrapper flex-between">
