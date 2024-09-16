@@ -1,14 +1,18 @@
+import Footer from "@/components/shared/footer";
+import Header from "@/components/shared/header/header";
+
 import React from "react";
-import Header from "./components/Header";
+
 type Children = {
   children: React.ReactNode;
 };
 
 function Provider({ children }: Children) {
   return (
-    <div>
+    <div className="flex h-screen flex-col ">
       <Header />
-      {children}
+      <main className="flex-1 wrapper">{children}</main>
+      <Footer />
     </div>
   );
 }
