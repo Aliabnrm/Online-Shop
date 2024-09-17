@@ -5,6 +5,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import { cn } from "@/lib/utils";
+import React from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
