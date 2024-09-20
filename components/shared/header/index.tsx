@@ -1,10 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
-import { SignInButton } from "@clerk/nextjs";
-import { ShoppingCart, User2Icon } from "lucide-react";
+import Menu from "./menu";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Header = async () => {
   return (
@@ -21,20 +18,10 @@ const Header = async () => {
             {APP_NAME}
           </Link>
         </div>
-        <div className="space-x-2 flex justify-center ">
-          <Button asChild variant="ghost">
-            <Link href="/cart">
-              <ShoppingCart />
-            </Link>
-          </Button>
-          <Button>
-            <User2Icon />
-            <SignInButton mode="modal">Sign In</SignInButton>
-          </Button>
-        </div>
+
+        <Menu />
       </div>
     </header>
   );
 };
-
 export default Header;

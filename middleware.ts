@@ -1,4 +1,4 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+/* import { clerkMiddleware } from "@clerk/nextjs/server";
 
 // para proteger la ruta / que es la home y todas las rutas de credits
 
@@ -11,4 +11,9 @@ export const config = {
     // Always run for API routes
     "/(api|trpc)(.*)",
   ],
+};
+*/
+export { auth as middleware } from "@/auth";
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|_next/assets|favicon.ico).*)"],
 };
