@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -9,22 +9,22 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table'
-import { useToast } from '@/components/ui/use-toast'
-import { addItemToCart, removeItemFromCart } from '@/lib/actions/cart.actions'
-import { formatCurrency } from '@/lib/utils'
-import { Cart } from '@/types'
-import { ArrowRight, Loader, Minus, Plus } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useTransition } from 'react'
+} from "@/components/ui/table";
+import { useToast } from "@/components/ui/use-toast";
+import { addItemToCart, removeItemFromCart } from "@/lib/actions/cart.actions";
+import { formatCurrency } from "@/lib/utils";
+import { Cart } from "@/types";
+import { ArrowRight, Loader, Minus, Plus } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 export default function CartForm({ cart }: { cart?: Cart }) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const { toast } = useToast()
-  const [isPending, startTransition] = useTransition()
+  const { toast } = useToast();
+  const [isPending, startTransition] = useTransition();
   return (
     <>
       <h1 className="py-4 h2-bold">Shopping Cart</h1>
@@ -68,12 +68,14 @@ export default function CartForm({ cart }: { cart?: Cart }) {
                         type="button"
                         onClick={() =>
                           startTransition(async () => {
-                            const res = await removeItemFromCart(item.productId)
+                            const res = await removeItemFromCart(
+                              item.productId
+                            );
                             if (!res.success) {
                               toast({
-                                variant: 'destructive',
+                                variant: "destructive",
                                 description: res.message,
-                              })
+                              });
                             }
                           })
                         }
@@ -91,12 +93,12 @@ export default function CartForm({ cart }: { cart?: Cart }) {
                         type="button"
                         onClick={() =>
                           startTransition(async () => {
-                            const res = await addItemToCart(item)
+                            const res = await addItemToCart(item);
                             if (!res.success) {
                               toast({
-                                variant: 'destructive',
+                                variant: "destructive",
                                 description: res.message,
-                              })
+                              });
                             }
                           })
                         }
@@ -124,9 +126,7 @@ export default function CartForm({ cart }: { cart?: Cart }) {
                   {formatCurrency(cart.itemsPrice)}
                 </div>
                 <Button
-                  onClick={() =>
-                    startTransition(() => router.push('/shipping-address'))
-                  }
+                  onClick={() => startTransition(() => router.push("/"))}
                   className="w-full"
                   disabled={isPending}
                 >
@@ -143,5 +143,5 @@ export default function CartForm({ cart }: { cart?: Cart }) {
         </div>
       )}
     </>
-  )
+  );
 }
